@@ -42,6 +42,11 @@
 #define AP_VS 11
 #define STOP 12
 
+#define TYPE_U_INT 0
+#define TYPE_U_SHORT 1
+#define TYPE_INT 2
+#define TYPE_SHORT 3
+
 // FS interface
 #include "FSinterface.h"
 
@@ -56,6 +61,9 @@
 #include "types.h"
 
 const int QtGuiApplication7::fs_offsets_tab[50][2] = { { 0x2B8, 4 }, { 0x574, 4 }, { 0x580, 4 }, { 0xBF4, 4 }, { 0xBF0, 4 }, { 0xBEC, 4 }, { 0x7D4, 4 }, { 0x7CC, 2 }, { 0xBE8, 4 }, { 0x88C, 2 }, { 0x7BC, 4 }, { 0x7F2, 2 } };
+const float QtGuiApplication7::fs_operations_tab[50][2] = { { 1, 128 }, { 3.28084, 1 }, { 36000, (65536 * 65536 * 100) }, { 1, 16383 }, { 1, 16383 }, { 1, 16383 }, { 3.28084, 65536 }, { 360, 65536 }, { 1, 16383 }, { 100, 16384 }, {1 ,1 }, { 1,1 } };
+const int QtGuiApplication7::fs_types_tab[50] = { 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 2 };
+
 
 QtGuiApplication7::QtGuiApplication7(QWidget *parent)
 	: QMainWindow(parent)
@@ -70,19 +78,6 @@ QtGuiApplication7::QtGuiApplication7(QWidget *parent)
 	unsigned int 2
 	unsigned short 3
 	*/
-	
-	fs_types_tab[RT_SPD] = 0;
-	fs_types_tab[RT_ALT] = 0;
-	fs_types_tab[RT_HDG] = 2;
-	fs_types_tab[LEFT_GEAR] = 0;
-	fs_types_tab[RIGHT_GEAR] = 0;
-	fs_types_tab[NOSE_GEAR] = 0;
-	fs_types_tab[AP_ALT] = 0;
-	fs_types_tab[AP_HDG] = 0;
-	fs_types_tab[AP_GEAR] = 0;
-	fs_types_tab[AP_SPD] = 3;
-	fs_types_tab[AP_MASTER] = 0;
-	fs_types_tab[AP_VS] = 3;
 
 	// Flags if values change
 	
@@ -109,12 +104,9 @@ void QtGuiApplication7::Alt(int arg1)
 
 void QtGuiApplication7::Spd(int arg1)
 {
-	
-	*((unsigned short*)fs_values_tab[AP_SPD]) = (unsigned short)round(((arg1 * 16384) / 100));
-	fs_flag_tab[AP_SPD] = 1;
-
+		*((unsigned short*)fs_values_tab[AP_SPD]) = (unsigned short)((arg1 * 16384) / 100);
+		fs_flag_tab[AP_SPD] = 1;
 }
-
 void QtGuiApplication7::Hdg(int arg1)
 
 
@@ -157,11 +149,12 @@ void QtGuiApplication7::AP(int arg1)
 void QtGuiApplication7::refresh_data()
 {
 	char buffer[65600];
+	char buffer_test[25];
 	int ap_alt, ap_hdg, gear, ap_master, rt_alt, left_gear, right_gear, nose_gear, rt_spd, vs;
-	unsigned short spd;
+	int spd;
 	unsigned int rt_hdg;
 
-	int i = 0, process_flag = 0, val_int;
+	int i = 0, j=0, process_flag = 0, val_int;
 	short val_short;
 	unsigned int val_u_int;
 	unsigned short val_u_short;
@@ -175,36 +168,41 @@ void QtGuiApplication7::refresh_data()
 		i++;
 	}
 	FSUIPC_Read(0,65535,buffer, &dwResult);
+	DWORD error = dwResult;
 	FSUIPC_Process(&dwResult);
 
-	i = buffer[fs_offsets_tab[AP_ALT][0]];
+	while (j < STOP){
+		if (fs_types_tab[j] == TYPE_U_INT){
+			*(unsigned int *)fs_cvalues_tab[j] = (*(unsigned int *)(buffer + (fs_offsets_tab[AP_ALT][0]))) * fs_operations_tab[j][0] / fs_operations_tab[j][1];
+		}
+		else if (fs_types_tab[j] == TYPE_U_SHORT){
+			*(unsigned short *)fs_cvalues_tab[j] = (*(unsigned short *)(buffer + (fs_offsets_tab[AP_ALT][0]))) * fs_operations_tab[j][0] / fs_operations_tab[j][1];
+		}
+		else if (fs_types_tab[j] == TYPE_INT){
+			*(int *)fs_cvalues_tab[j] = (*(int *)(buffer + (fs_offsets_tab[AP_ALT][0]))) * fs_operations_tab[j][0] / fs_operations_tab[j][1];
+		}
+		else if (fs_types_tab[j] == TYPE_SHORT){
+			*(short *)fs_cvalues_tab[j] = (*(short *)(buffer + (fs_offsets_tab[AP_ALT][0]))) * fs_operations_tab[j][0] / fs_operations_tab[j][1];
+		}
+		j++;
+	}
 
-	ap_alt = (((unsigned int )buffer[fs_offsets_tab[AP_ALT][0]]) * 3.28084) / 65536.;
-	spd = round(((unsigned short )buffer[fs_offsets_tab[AP_SPD][0]]) * 100. / 16384);
-	ap_hdg = ((unsigned short )buffer[fs_offsets_tab[AP_HDG][0]]) * 360. / 65536.;
-	gear = ((unsigned int )buffer[fs_offsets_tab[AP_GEAR][0]]) / 16383;
-	rt_alt = ((unsigned int )buffer[fs_offsets_tab[RT_ALT][0]]) * 3.28084;
-	rt_hdg = (((unsigned int )buffer[fs_offsets_tab[RT_HDG][0]]) * 36000.) / (65536 * 65536.);
-	rt_spd = ((unsigned int )buffer[fs_offsets_tab[RT_SPD][0]]) / 128;
-	vs = ((short )buffer[fs_offsets_tab[AP_VS][0]]);
-	ap_master = ((int )buffer[fs_offsets_tab[AP_MASTER][0]]);
 
 
+	emit refresh_alt(*(unsigned int *)fs_cvalues_tab[AP_ALT]);
+	emit refresh_hdg(*(unsigned short *)fs_cvalues_tab[AP_HDG]);
+	emit refresh_gear(*(unsigned int *)fs_cvalues_tab[AP_GEAR]);
+	emit refresh_spd(*(unsigned short *)fs_cvalues_tab[AP_SPD]);
+	emit refresh_ap((bool)(*(unsigned int *)fs_cvalues_tab[AP_MASTER]));
+	emit refresh_vs(*(unsigned short *)fs_cvalues_tab[AP_VS]);
 
-	emit refresh_alt(ap_alt);
-	emit refresh_hdg(ap_hdg);
-	emit refresh_gear(gear);
-	emit refresh_spd(spd);
-	emit refresh_ap((bool)ap_master);
-	emit refresh_vs(vs);
+	emit refresh_rt_alt(*(unsigned int *)fs_cvalues_tab[RT_ALT]);
+	emit refresh_rt_spd(*(unsigned int *)fs_cvalues_tab[RT_SPD]);
+	emit refresh_rt_hdg(*(unsigned int *)fs_cvalues_tab[RT_HDG]);
 
-	emit refresh_rt_alt(rt_alt);
-	emit refresh_rt_spd(rt_spd);
-	emit refresh_rt_hdg(rt_hdg/100);
-
-	emit refresh_left_gear((bool)(*((int *)fs_values_tab[LEFT_GEAR]) / 16383));
-	emit refresh_right_gear((bool)(*((int *)fs_values_tab[RIGHT_GEAR]) / 16383));
-	emit refresh_nose_gear((bool)(*((int *)fs_values_tab[NOSE_GEAR]) / 16383));
+	emit refresh_left_gear((bool)(*(unsigned int *)fs_cvalues_tab[LEFT_GEAR]));
+	emit refresh_right_gear((bool)(*(unsigned int *)fs_cvalues_tab[RIGHT_GEAR]));
+	emit refresh_nose_gear((bool)(*(unsigned int *)fs_cvalues_tab[NOSE_GEAR]));
 	//QMessageBox::information(this, "Altitude", alt_c);
 
 }

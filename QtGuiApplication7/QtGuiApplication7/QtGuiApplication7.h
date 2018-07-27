@@ -13,8 +13,10 @@ public:
 	QtGuiApplication7(QWidget *parent = Q_NULLPTR);
 	static const int fs_offsets_tab[50][2];
 	char fs_values_tab[50][20];
-	int fs_types_tab[50];
+	static const float fs_operations_tab[50][2];
 	int fs_flag_tab[50];
+	static const int fs_types_tab[50];
+	char fs_cvalues_tab[50][8];
 
 private:
 	Ui::QtGuiApplication7Class ui;

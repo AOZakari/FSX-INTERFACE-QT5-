@@ -664,22 +664,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>QtGuiApplication7Class</sender>
-   <signal>refresh_ap(bool)</signal>
-   <receiver>checkBox_4</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>228</x>
-     <y>608</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>150</x>
-     <y>310</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>checkBox_4</sender>
    <signal>stateChanged(int)</signal>
    <receiver>QtGuiApplication7Class</receiver>
@@ -724,22 +708,6 @@
     <hint type="destinationlabel">
      <x>434</x>
      <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>spinBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>QtGuiApplication7Class</receiver>
-   <slot>Spd(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>382</x>
-     <y>317</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>318</x>
-     <y>449</y>
     </hint>
    </hints>
   </connection>

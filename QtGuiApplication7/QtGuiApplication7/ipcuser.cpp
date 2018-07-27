@@ -10,7 +10,7 @@ With acknowledgements to Adam Szofran (author of original FS6IPC).
 extern "C" {
 
 #define LIB_VERSION 2002 // 2.002
-#define MAX_SIZE 0x7F00 // Largest data (kept below 32k to avoid
+#define MAX_SIZE 66000 // Largest data (kept below 32k to avoid
                                 // any possible 16-bit sign problems)
 #include "IPCuser.h"
 

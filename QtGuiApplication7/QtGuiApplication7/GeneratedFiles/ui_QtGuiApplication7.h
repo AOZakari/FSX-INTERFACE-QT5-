@@ -291,11 +291,9 @@ public:
         QObject::connect(QtGuiApplication7Class, SIGNAL(refresh_left_gear(bool)), checkBox_2, SLOT(setChecked(bool)));
         QObject::connect(QtGuiApplication7Class, SIGNAL(refresh_nose_gear(bool)), checkBox, SLOT(setChecked(bool)));
         QObject::connect(QtGuiApplication7Class, SIGNAL(refresh_right_gear(bool)), checkBox_3, SLOT(setChecked(bool)));
-        QObject::connect(QtGuiApplication7Class, SIGNAL(refresh_ap(bool)), checkBox_4, SLOT(setChecked(bool)));
         QObject::connect(checkBox_4, SIGNAL(stateChanged(int)), QtGuiApplication7Class, SLOT(AP(int)));
         QObject::connect(spinBox, SIGNAL(valueChanged(int)), dial, SLOT(setValue(int)));
         QObject::connect(dial, SIGNAL(valueChanged(int)), spinBox, SLOT(setValue(int)));
-        QObject::connect(spinBox, SIGNAL(valueChanged(int)), QtGuiApplication7Class, SLOT(Spd(int)));
         QObject::connect(QtGuiApplication7Class, SIGNAL(refresh_vs(int)), spinBox_4, SLOT(setValue(int)));
 
         QMetaObject::connectSlotsByName(QtGuiApplication7Class);
