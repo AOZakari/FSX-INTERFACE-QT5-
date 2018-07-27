@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtGuiApplication7Class</class>
+ <widget class="QMainWindow" name="QtGuiApplication7Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>875</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QtGuiApplication7</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>40</y>
+      <width>19</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>1</number>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="invertedAppearance">
+     <bool>true</bool>
+    </property>
+    <property name="invertedControls">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>40</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gear up</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>180</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gear Down</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nose</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Left</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_3">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>130</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Right</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>280</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>AP</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>240</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Real-Time</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>270</y>
+      <width>428</width>
+      <height>202</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QSpinBox" name="spinBox">
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="dial">
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Spd</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QSpinBox" name="spinBox_2">
+         <property name="maximum">
+          <number>50000</number>
+         </property>
+         <property name="singleStep">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="dial_2">
+         <property name="maximum">
+          <number>50000</number>
+         </property>
+         <property name="singleStep">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Alt</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QSpinBox" name="spinBox_3">
+         <property name="maximum">
+          <number>360</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="dial_3">
+         <property name="maximum">
+          <number>360</number>
+         </property>
+         <property name="pageStep">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Hdg</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QSpinBox" name="spinBox_4">
+         <property name="minimum">
+          <number>-3800</number>
+         </property>
+         <property name="maximum">
+          <number>3800</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="dial_4">
+         <property name="minimum">
+          <number>-3800</number>
+         </property>
+         <property name="maximum">
+          <number>3800</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>VS</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>230</y>
+      <width>321</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QSpinBox" name="spinBox_5">
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="spinBox_6">
+       <property name="maximum">
+        <number>50000</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="spinBox_7">
+       <property name="maximum">
+        <number>360</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_4">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>270</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Autopilot</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>875</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="QtGuiApplication7.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>spinBox_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dial_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>323</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>512</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_4</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dial_4</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>731</x>
+     <y>339</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>504</x>
+     <y>344</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>495</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>594</x>
+     <y>345</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>596</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial_4</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox_4</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>707</x>
+     <y>365</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>715</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QtGuiApplication7Class</receiver>
+   <slot>Alt(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>318</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>330</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QtGuiApplication7Class</receiver>
+   <slot>Hdg(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>614</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>497</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_4</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QtGuiApplication7Class</receiver>
+   <slot>VS(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>698</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>505</x>
+     <y>265</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QtGuiApplication7Class</receiver>
+   <slot>Gear(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_alt(int)</signal>
+   <receiver>dial_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>493</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_spd(int)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>234</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>421</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_hdg(int)</signal>
+   <receiver>dial_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>621</x>
+     <y>381</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dial_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>594</x>
+     <y>323</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>610</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_rt_spd(int)</signal>
+   <receiver>spinBox_5</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>443</x>
+     <y>276</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_rt_alt(int)</signal>
+   <receiver>spinBox_6</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>555</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>558</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_rt_hdg(int)</signal>
+   <receiver>spinBox_7</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>643</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>666</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_left_gear(bool)</signal>
+   <receiver>checkBox_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>17</x>
+     <y>60</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>29</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_nose_gear(bool)</signal>
+   <receiver>checkBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>83</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_right_gear(bool)</signal>
+   <receiver>checkBox_3</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>176</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_ap(bool)</signal>
+   <receiver>checkBox_4</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>608</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>150</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_4</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>QtGuiApplication7Class</receiver>
+   <slot>AP(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
+     <y>314</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>473</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dial</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>316</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>371</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>434</x>
+     <y>348</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>434</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QtGuiApplication7Class</receiver>
+   <slot>Spd(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>382</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>QtGuiApplication7Class</sender>
+   <signal>refresh_vs(int)</signal>
+   <receiver>spinBox_4</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>834</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>780</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>refresh_alt(int)</signal>
+  <signal>refresh_spd(int)</signal>
+  <signal>refresh_vs(int)</signal>
+  <signal>refresh_hdg(int)</signal>
+  <signal>refresh_gear(int)</signal>
+  <signal>refresh_rt_spd(int)</signal>
+  <signal>refresh_rt_hdg(int)</signal>
+  <signal>refresh_rt_alt(int)</signal>
+  <signal>refresh_left_gear(bool)</signal>
+  <signal>refresh_right_gear(bool)</signal>
+  <signal>refresh_nose_gear(bool)</signal>
+  <signal>refresh_ap(bool)</signal>
+  <slot>AP(int)</slot>
+  <slot>Alt(int)</slot>
+  <slot>Hdg(int)</slot>
+  <slot>Spd(int)</slot>
+  <slot>VS(int)</slot>
+  <slot>Gear(int)</slot>
+ </slots>
+</ui>
